@@ -18,7 +18,12 @@ public class Member {
 
     private String name;
 
-    public Member() { //JPA 엔티티는 기본생성자가 필수
+    public Member() { //JPA 엔티티는 기본생성자가 필수 public or protected - 자바 리플렉션을 활용하여 동적으로 객체를 생성
+    }
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
 }

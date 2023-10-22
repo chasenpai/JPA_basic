@@ -1,6 +1,7 @@
-package hello;
+package hello.persistence;
 
 import com.sun.security.jgss.GSSUtil;
+import hello.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +12,7 @@ public class PersistenceContext {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hello"); //persistence.xml 에서 작성한 persistence-unit name
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hello");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
@@ -40,7 +41,7 @@ public class PersistenceContext {
             entityManager.persist(member); //1차 캐시에 저장
             System.out.println("--after persist--");
 
-            //1차 캐시에서 조회 - select 쿼리가 날라가지 않음
+            //1차 캐시에서 조회 - select 쿼리가 날라가지 않음, 만약 1차 캐시에 없으면 DB 조회 후 1차 캐시에 저장한다
             Member findMember1 = entityManager.find(Member.class, 15L);
             System.out.println("findMember1 = " + findMember1);
 

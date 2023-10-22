@@ -1,4 +1,6 @@
-package hello;
+package hello.start;
+
+import hello.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
