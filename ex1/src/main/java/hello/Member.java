@@ -18,4 +18,7 @@ public class Member {
 
     private String name;
 
+    public Member() { //JPA 엔티티는 기본생성자가 필수
+    }
+
 }
