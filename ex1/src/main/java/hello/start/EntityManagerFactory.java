@@ -42,8 +42,8 @@ public class EntityManagerFactory {
             **/
 
             //변경
-            Member findMember = entityManager.find(Member.class, 2L);
-            findMember.setName("MemberC"); //persist() X - 트랜잭션 커밋 직전에 변경을 체크하고 업데이트 쿼리를 날림
+//            Member findMember = entityManager.find(Member.class, 2L);
+//            findMember.setName("MemberC"); //persist() X - 트랜잭션 커밋 직전에 변경을 체크하고 업데이트 쿼리를 날림
 
             transaction.commit();
         }catch (Exception e) {
