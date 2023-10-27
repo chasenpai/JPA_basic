@@ -1,0 +1,17 @@
+ex1/.gradle/
+ex1/.idea/
+ex1/gradle/wrapper/gradle-wrapper.jar
+ex1/gradle/wrapper/gradle-wrapper.properties
+ex1/gradlew
+ex1/gradlew.bat
+ex1/settings.gradle
+ex1/build/
+ex1/out/
+shop/.gradle/
+shop/.idea/
+shop/build/
+shop/settings.gradle
+shop/gradle/wrapper/gradle-wrapper.jar
+shop/gradle/wrapper/gradle-wrapper.properties
+shop/gradlew
+shop/gradlew.bat
