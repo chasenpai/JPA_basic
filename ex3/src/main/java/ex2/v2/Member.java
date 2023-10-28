@@ -1,4 +1,4 @@
-package ex2.v1;
+package ex2.v2;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,5 +23,11 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "team_id")
     private Team team;
+
+    //연관관계 편의 메서드
+    public void setTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
+    }
 
 }
