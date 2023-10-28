@@ -1,4 +1,4 @@
-package shop.domain;
+package shop.v2.domain;
 
 public enum OrderStatus {
 

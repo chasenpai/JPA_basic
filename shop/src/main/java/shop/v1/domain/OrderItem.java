@@ -1,4 +1,4 @@
-package shop.domain;
+package shop.v1.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
