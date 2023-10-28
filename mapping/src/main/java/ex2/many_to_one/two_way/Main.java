@@ -1,4 +1,4 @@
-package ex2.v2;
+package ex2.many_to_one.two_way;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class V2Main {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -16,6 +16,7 @@ public class V2Main {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
+        //다대일 양방향
         try {
 
             Team team = new Team();

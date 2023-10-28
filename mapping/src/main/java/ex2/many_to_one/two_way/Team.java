@@ -1,4 +1,4 @@
-package ex2.v2;
+package ex2.many_to_one.two_way;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

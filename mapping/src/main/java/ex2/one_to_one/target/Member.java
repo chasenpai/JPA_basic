@@ -1,4 +1,4 @@
-package ex2.v2;
+package ex2.one_to_one.target;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,14 +20,7 @@ public class Member {
     @Column(name = "username")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Team team;
-
-    //연관관계 편의 메서드
-    public void setTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
+    @OneToOne(mappedBy = "member")
+    private Locker locker;
 
 }
