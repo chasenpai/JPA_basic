@@ -1,4 +1,4 @@
-package ex3.inheritance_join;
+package ex3.inheritance_joined;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +11,11 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @NoArgsConstructor
-@DiscriminatorValue(value = "B")
-public class Book extends Item {
+@DiscriminatorValue(value = "M")
+public class Movie extends Item {
 
-    private String author;
+    private String director;
 
-    private String isbn;
+    private String actor;
 
 }

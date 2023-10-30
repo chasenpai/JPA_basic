@@ -1,4 +1,4 @@
-package ex3.inheritance_join;
+package ex3.inheritance_joined;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
