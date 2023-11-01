@@ -3,10 +3,8 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="hello">
-        <class>ex3.inheritance_table_per_class.Item</class>
-        <class>ex3.inheritance_table_per_class.Book</class>
-        <class>ex3.inheritance_table_per_class.Album</class>
-        <class>ex3.inheritance_table_per_class.Movie</class>
+        <class>ex3.mapped_superclass.Member</class>
+        <class>ex3.mapped_superclass.Team</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
