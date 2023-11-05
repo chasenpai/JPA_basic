@@ -1,4 +1,4 @@
-package ex1;
+package embedded;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

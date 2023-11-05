@@ -1,4 +1,4 @@
-package ex1;
+package embedded;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

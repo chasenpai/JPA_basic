@@ -1,4 +1,4 @@
-package ex1;
+package value_type;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
