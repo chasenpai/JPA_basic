@@ -39,3 +39,11 @@ mapping/gradle/
 mapping/gradlew
 mapping/gradlew.bat
 mapping/settings.gradle
+type/build/
+type/.gradle/
+type/gradlew
+type/gradlew.bat
+type/settings.gradle
+type/.idea/
+type/gradle/wrapper/gradle-wrapper.jar
+type/gradle/wrapper/gradle-wrapper.properties
