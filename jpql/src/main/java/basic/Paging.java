@@ -1,9 +1,6 @@
 package basic;
 
-import basic.dto.MemberDto;
-import basic.entity.Address;
 import basic.entity.Member;
-import basic.entity.Team;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
