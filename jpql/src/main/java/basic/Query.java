@@ -5,7 +5,7 @@ import basic.entity.Member;
 import javax.persistence.*;
 import java.util.List;
 
-public class Main {
+public class Query {
 
     public static void main(String[] args) {
 
@@ -35,7 +35,7 @@ public class Main {
             TypedQuery<Member> query1 = em.createQuery("select m from Member m", Member.class);
             TypedQuery<String> query2 = em.createQuery("select m.name from Member m", String.class);
             //Query - 반환 타입이 명확하지 않을 때 사용
-            Query query3 = em.createQuery("select m.name, m.age from Member m");
+            javax.persistence.Query query3 = em.createQuery("select m.name, m.age from Member m");
 
             //결과가 하나 이상일 때 리스트로 반환 - 결과가 없으면 빈 리스트 반환
             List<Member> result1 = query1.getResultList();
