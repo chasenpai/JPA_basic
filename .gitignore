@@ -47,3 +47,12 @@ type/settings.gradle
 type/.idea/
 type/gradle/wrapper/gradle-wrapper.jar
 type/gradle/wrapper/gradle-wrapper.properties
+jpql/.gradle/
+jpql/.idea/.gitignore
+jpql/.idea/
+jpql/build/
+jpql/gradle/wrapper/gradle-wrapper.jar
+jpql/gradle/wrapper/gradle-wrapper.properties
+jpql/gradlew
+jpql/gradlew.bat
+jpql/settings.gradle
