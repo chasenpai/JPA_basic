@@ -1,5 +1,6 @@
 package basic.entity;
 
+import basic.enums.MemberType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,6 +28,9 @@ public class Member {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
+
+    @Enumerated(EnumType.STRING)
+    private MemberType type;
 
     public void changeTeam(Team team) {
         this.team = team;
