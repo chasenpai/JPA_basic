@@ -27,6 +27,7 @@
             <!--<property name="hibernate.hbm2ddl.auto" value="update" />--> <!--변경분만 반영-->
             <!--<property name="hibernate.hbm2ddl.auto" value="validate" />--> <!--엔티티와 테이블 정상 매핑 검증-->
             <!--<property name="hibernate.hbm2ddl.auto" value="none" />--> <!--사용안함-->
+            <property name="hibernate.default_fetch_size" value="100"/><!--배치 사이즈 글로벌 설정-->
         </properties>
     </persistence-unit>
 </persistence>

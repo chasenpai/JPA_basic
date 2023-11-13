@@ -103,6 +103,56 @@ public class FetchJoin {
                 }
             }
 
+            /**
+             * 페치 조인의 한계
+             * - 페치 조인 대상에는 별칭을 줄 수 없다(하이버네이트는 가능하지만 가급적 사용 X)
+             * - 둘 이상의 컬렉션은 페치 조인 할 수 없다(1대 다대다 > 곱하기 곱하기.. 예상하지 못한 데이터 뻥튀기 되어버림)
+             * - 컬렉션을 페치 조인하면 페이징 API 를 사용할 수 없다
+             * - 일대일, 다대일 같은 단일 값 연관 필드들은 페치 조인해도 페이징 가능
+             * - 하이버네이트는 경고 로그를 남기고 메모리에서 페이징(매우 위험)
+             */
+            //페치 조인은 별칭을 주지 않는게 관례
+            //만약 멤버가 5명인데 3명만 불러온다? 그리고 3명만 따로 조작 -> 예기치 못한 동작 발생 가능(CASCADE 등)
+            //JPA 가 의도한 동작이 설계가 아니다 - 객체 그래프 탐색은 모든 멤버가 다 나온다는 걸 가정하고 설계되어 있음
+            String query5 = "select t from Team t join fetch t.members m";
+            List<Team> result5 = em.createQuery(query5, Team.class).getResultList();
+
+            //컬렉션을 페치 조인 시 페이징 쿼리를 확인할 수 없다
+            //WARN: HHH000104: firstResult/maxResults specified with collection fetch; applying in memory!
+            String query6 = "select t from Team t join fetch t.members";
+            List<Team> result6 = em.createQuery(query6, Team.class)
+                    .setFirstResult(0)
+                    .setMaxResults(1)
+                    .getResultList();
+
+            em.flush();
+            em.clear();
+
+            //컬렉션 페이징 사용 시 페치 조인을 사용하지 않고 @BatchSize 활용 - 지연 로딩으로 인한 N + 1 해결
+            String query7 = "select t From Team t";
+            List<Team> result7 = em.createQuery(query7, Team.class)
+                    .setFirstResult(0)
+                    .setMaxResults(2)
+                    .getResultList();
+            for (Team team : result7) {
+                System.out.println("team = " + team.getName());
+                for (Member member : team.getMembers()) {
+                    System.out.println("member = " + member.getName());
+                }
+            }
+
+            /**
+             * 페치 조인의 특징과 실무 활용
+             * - 연관된 엔티티들을 SQL 한번으로 조회 - 성능 최적화
+             * - 엔티티에 직접 적용하는 글로벌 로딩 전략보다 우선 처리
+             * - 실무에서 글로벌 로딩 전략은 모두 지연 로딩
+             * - 최적화가 필요한 곳은 페치 조인 적용
+             * - 하지만 모든 것을 페치 조인으로 해결할 순 없음
+             * - 페치 조인은 객체 그래프를 유지할 때 사용하면 효과적
+             * - 여러 테이블을 조인해서 엔티티가 가진 모양이 아닌 전혀 다른 결과가 필요하다면
+             * - 페치 조인보다 일반 조인을 사용하고 필요한 데이터들만 조회해서 DTO 반환이 효과적임
+             */
+
             tx.commit();
         }catch (Exception e) {
             e.printStackTrace();
