@@ -9,6 +9,11 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
+//Named 정적 쿼리
+@NamedQuery(
+        name = "Member.findByName",
+        query = "select m from Member m where m.name = :name"
+)
 @Getter
 @Setter
 @NoArgsConstructor
